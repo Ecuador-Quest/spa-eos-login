@@ -1,5 +1,5 @@
 {
-  "name": "spa-eos-login",
+  "name": "login",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:dev": "ng serve --disable-host-check --port 4201 --deploy-url http://localhost:4201/ --live-reload false",
-    "build:single-spa": "ng build --prod --deploy-url /dist/spa-eos-login --output-hashing none"
+    "build:single-spa": "ng build --prod --deploy-url /dist/spa-eos-login --output-hashing none",
+    "serve:single-spa": "ng serve --disable-host-check --port 4201 --deploy-url http://localhost:4201/ --live-reload false"
   },
   "private": true,
   "dependencies": {

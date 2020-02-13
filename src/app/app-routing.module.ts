@@ -5,7 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
-  { path: '**', component: AuthComponent },
+  { path: 'auth', component: AuthComponent },
 ];
 
 @NgModule({
