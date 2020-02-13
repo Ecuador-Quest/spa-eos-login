@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spa-backoffice-login": {
+    "spa-eos-login": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,11 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builder/build-angular:browser",
           "options": {
-            "outputPath": "dist/spa-backoffice-login",
+            "outputPath": "dist/spa-eos-login",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src/main.single-spa.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
@@ -26,7 +26,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./extra-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -56,20 +59,20 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "spa-backoffice-login:build"
+            "browserTarget": "spa-eos-login:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "spa-backoffice-login:build:production"
+              "browserTarget": "spa-eos-login:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spa-backoffice-login:build"
+            "browserTarget": "spa-eos-login:build"
           }
         },
         "test": {
@@ -106,15 +109,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "spa-backoffice-login:serve"
+            "devServerTarget": "spa-eos-login:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "spa-backoffice-login:serve:production"
+              "devServerTarget": "spa-eos-login:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "spa-backoffice-login"
+  "defaultProject": "spa-eos-login"
 }
