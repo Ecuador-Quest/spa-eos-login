@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run serve:dev",
+    "build": "npm run build:prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve:dev": "ng serve --disable-host-check --port 1991 --deploy-url http://localhost:1991/ --live-reload false",
+    "build:prod": "ng build --prod --deploy-url /dist/spa-eos-login --output-hashing none"
   },
   "private": true,
   "dependencies": {
