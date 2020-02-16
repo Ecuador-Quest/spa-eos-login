@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { LocksreenComponent } from './locksreen/locksreen.component';
 import { RegisterComponent } from './register/register.component';
 import {AuthRoutingModule} from './auth-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {EosMaterialModule} from '../eos-material.module';
 
 
 
@@ -29,7 +31,9 @@ import {AuthRoutingModule} from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    EosMaterialModule
   ]
 })
 export class AuthModule { }

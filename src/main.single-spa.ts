@@ -23,5 +23,6 @@ const lifecycles = singleSpaAngular({
 });
 
 export const bootstrap = lifecycles.bootstrap;
+import 'hammerjs';
 export const mount = lifecycles.mount;
 export const unmount = lifecycles.unmount;
