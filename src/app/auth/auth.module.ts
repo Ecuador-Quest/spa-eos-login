@@ -9,6 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import {AuthRoutingModule} from './auth-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {EosMaterialModule} from '../eos-material.module';
+import {SharedModule} from '../shared/shared.module';
+import {HttpClientModule} from "@angular/common/http";
+import {ServiceModule} from "./service/service.module";
 
 
 
@@ -31,9 +34,13 @@ import {EosMaterialModule} from '../eos-material.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    EosMaterialModule
-  ]
+    EosMaterialModule,
+    SharedModule,
+    ServiceModule
+  ],
+
 })
 export class AuthModule { }

@@ -1,35 +1,43 @@
-<div class="login-register" style="background-image:url(../../../assets/images/background/login-register.jpg);">
-  <div class="login-register-box">
+<div class="login-register" style="background-image:url(https://www.mandaripanga.com/wp-content/uploads/2016/05/COMMUNITY.png);">
+  <div class="login-register-box" fxFlex="100" >
     <mat-card>
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="text-center">
-            <img alt="homepage" src="../../../assets/images/logo-icon.png">
-            <h4 class="m-t-0">Login to App</h4>
+            <img alt="homepage" src="https://www.mandaripanga.com/wp-content/uploads/2017/06/logotipo-mandari-panga-2.png" width="100px">
+            <h4 class="m-t-0">Login to MandariPanga</h4>
           </div>
 
           <div fxLayout="row wrap">
             <!-- col full-->
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-              <mat-form-field>
-                <input matInput placeholder="Username" [formControl]="form.controls['uname']">
+              <mat-form-field appearance="outline">
+                <mat-label>User Name  </mat-label>
+                <input matInput placeholder="User Name" [formControl]="f('username')">
               </mat-form-field>
-              <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="text-danger support-text">Username is required.</small>
+
+              <app-label-form
+                [invalid]="errorHandler.isControlInvalid(f('username')) "
+                [invalidText]="errorHandler.getErrorMessage(f('username').errors) "></app-label-form>
             </div>
             <!-- col full-->
+
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-              <mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Password  </mat-label>
                 <input matInput type="password" placeholder="Password" [formControl]="form.controls['password']">
               </mat-form-field>
-              <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">Password is required.</small>
-            </div>
+              <app-label-form
+                [invalid]="errorHandler.isControlInvalid(f('username')) "
+                [invalidText]="errorHandler.getErrorMessage(f('username').errors) "></app-label-form>            </div>
             <!-- col half-->
             <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
               <mat-checkbox color="warn">Remember me</mat-checkbox>
             </div>
             <!-- col half-->
             <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
-              <a [routerLink]="['/authentication/forgot']" class="link">Forgot pwd?</a>
+              <a [routerLink]="['/auth/forgot']" class="link">Forgot pwd?</a>
             </div>
             <!-- col full-->
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
@@ -38,7 +46,7 @@
             <!-- col full-->
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="text-center">
                             <span>Don't have an account?
-                                <a [routerLink]="['/authentication/register']" class="text-info link">Register</a>
+                                <a [routerLink]="['/auth/register']" class="text-info link">Register</a>
                             </span>
             </div>
           </div>

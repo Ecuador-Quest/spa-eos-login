@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {EosClientInterceptor} from "./shared/service/eos-client.interceptor";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AuthModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: EosClientInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
